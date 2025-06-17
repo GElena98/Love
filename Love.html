@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo ❤️</title>
+     <style>
+    body {
+      margin: 0;
+      background: #ffccd5;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+    .mensaje {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #b80000;
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px #fff;
+      z-index: 1;
+    }
+    .corazon {
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      position: absolute;
+      transform: rotate(-45deg);
+      animation: flotar 6s linear infinite;
+    }
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+    .corazon::after {
+      top: 0;
+      left: 10px;
+    }
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="mensaje">❤️ Te amo ❤️</div>
+  <script>
+    function crearCorazon() {
+      const corazon = document.createElement('div');
+      corazon.classList.add('corazon');
+      corazon.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(corazon);
+      setTimeout(() => {
+        corazon.remove();
+      }, 6000);
+    }
+    setInterval(crearCorazon, 300);
+  </script>
+</body>
+</html>
